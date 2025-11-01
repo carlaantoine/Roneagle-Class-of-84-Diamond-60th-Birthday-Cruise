@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class of 1984 60th Diamond Birthday Cruise</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .flyer {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .hero-section {
+            position: relative;
+            height: 450px;
+            background: linear-gradient(135deg, rgb(128, 0, 0) 0%, rgb(160, 40, 40) 50%, #DAA520 100%);
+            overflow: hidden;
+        }
+        
+        .wave-decoration {
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: white;
+            clip-path: ellipse(100% 100% at 50% 100%);
+        }
+        
+        .ship-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+        }
+        
+        .hero-overlay {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            z-index: 2;
+        }
+        
+        .mascot-container {
+            margin-bottom: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .mascot-image {
+            width: 150px;
+            height: 150px;
+            filter: drop-shadow(0 6px 12px rgba(0,0,0,0.4));
+        }
+        
+        .year-badge {
+            display: inline-block;
+            background: white;
+            color: rgb(128, 0, 0);
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .main-title {
+            font-size: 52px;
+            font-weight: 700;
+            margin: 15px 0;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 26px;
+            font-weight: 400;
+            margin-top: 15px;
+            opacity: 0.95;
+        }
+        
+        .ship-name {
+            font-size: 20px;
+            margin-top: 20px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .fun-banner {
+            background: #DAA520;
+            color: rgb(128, 0, 0);
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .voyage-details {
+            background: rgb(128, 0, 0);
+            color: white;
+            padding: 50px 40px;
+            position: relative;
+        }
+        
+        .confetti-decoration {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.2;
+        }
+        
+        .confetti-1 { top: 20px; left: 5%; }
+        .confetti-2 { top: 40px; right: 8%; }
+        .confetti-3 { bottom: 30px; left: 10%; }
+        .confetti-4 { bottom: 50px; right: 5%; }
+        
+        .voyage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .detail-item {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 25px 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+        
+        .detail-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .detail-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .detail-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .detail-value {
+            font-size: 22px;
+            font-weight: 700;
+            color: #DAA520;
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+            color: rgb(128, 0, 0);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-section::before {
+            content: '🎉';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            top: -20px;
+            left: 10%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .pricing-section::after {
+            content: '🎊';
+            position: absolute;
+            font-size: 100px;
+            opacity: 0.1;
+            bottom: -20px;
+            right: 10%;
+            animation: rotate 20s linear infinite reverse;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .price-container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .price-container h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 72px;
+            font-weight: 900;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .price-detail {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .important-info {
+            background: linear-gradient(135deg, #fff9e6 0%, #fffcf0 100%);
+            border: 3px solid #DAA520;
+            padding: 35px;
+            margin: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.2);
+        }
+        
+        .important-info h3 {
+            color: rgb(128, 0, 0);
+            font-size: 26px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .important-info ul {
+            list-style: none;
+        }
+        
+        .important-info li {
+            padding: 15px 20px;
+            color: #333;
+            font-size: 16px;
+            background: white;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid rgb(128, 0, 0);
+            transition: transform 0.2s ease;
+        }
+        
+        .important-info li:hover {
+            transform: translateX(5px);
+        }
+        
+        .important-info strong {
+            color: rgb(128, 0, 0);
+            font-weight: 700;
+        }
+        
+        .itinerary-section {
+            padding: 60px 40px;
+            background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            color: rgb(128, 0, 0);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .itinerary-grid {
+            display: grid;
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .day-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 6px solid #DAA520;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .day-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(128,0,0,0.03) 0%, rgba(218,165,32,0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            border-left-color: rgb(128, 0, 0);
+        }
+        
+        .day-card:hover::before {
+            opacity: 1;
+        }
+        
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .day-number {
+            font-size: 16px;
+            color: white;
+            background: rgb(128, 0, 0);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .day-time {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+            background: #f0f0f0;
+            padding: 6px 15px;
+            border-radius: 15px;
+        }
+        
+        .day-location {
+            font-size: 26px;
+            color: rgb(128, 0, 0);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .day-description {
+            color: #555;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, rgb(128, 0, 0) 0%, rgb(100, 0, 0) 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+        }
+        
+        .contact-decoration {
+            position: absolute;
+            font-size: 60px;
+            opacity: 0.1;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-card:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.05);
+        }
+        
+        .contact-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .contact-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+        
+        .contact-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #DAA520;
+            word-break: break-word;
+        }
+        
+        .footer {
+            background: #DAA520;
+            color: rgb(128, 0, 0);
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 16px;
+            line-height: 2;
+            font-weight: 600;
+        }
+        
+        .celebration-tagline {
+            margin-top: 25px;
+            font-size: 22px;
+            font-weight: 700;
+            font-style: italic;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .flyer {
+                box-shadow: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 36px;
+            }
+            .price {
+                font-size: 56px;
+            }
+            .hero-section {
+                height: 400px;
+            }
+            .mascot-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <svg class="ship-background" viewBox="0 0 1200 450" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#1a5490;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0d2d50;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <rect width="1200" height="450" fill="url(#oceanGrad)"/>
+                <path d="M 300 280 L 200 330 L 200 350 L 1000 350 L 1000 330 L 900 280 Z" fill="#fff" opacity="0.25"/>
+                <rect x="400" y="210" width="400" height="70" fill="#fff" opacity="0.25"/>
+                <rect x="450" y="180" width="300" height="30" fill="#fff" opacity="0.2"/>
+                <rect x="500" y="150" width="40" height="60" fill="#fff" opacity="0.25"/>
+                <rect x="660" y="150" width="40" height="60" fill="#fff" opacity="0.25"/>
+                <path d="M 0 360 Q 150 350 300 360 T 600 360 T 900 360 T 1200 360 L 1200 450 L 0 450 Z" fill="#fff" opacity="0.15"/>
+            </svg>
+            <div class="hero-overlay">
+                <div class="mascot-container">
+                    <img src="/mnt/user-data/uploads/18249.jpg" alt="Roneagle Mascot" class="mascot-image">
+                </div>
+                <div class="year-badge">Roneagle Class of 1984</div>
+                <h1 class="main-title">60th Birthday<br>Celebration Cruise</h1>
+                <p class="subtitle">Western Caribbean Adventure</p>
+                <p class="ship-name">🚢 Carnival Valor 🚢</p>
+            </div>
+            <div class="wave-decoration"></div>
+        </div>
+        
+        <!-- Fun Banner -->
+        <div class="fun-banner">
+            🎉 Join Your Classmates for the Adventure of a Lifetime! 🎉
+        </div>
+        
+        <!-- Voyage Details -->
+        <div class="voyage-details">
+            <span class="confetti-decoration confetti-1">🎊</span>
+            <span class="confetti-decoration confetti-2">🎉</span>
+            <span class="confetti-decoration confetti-3">✨</span>
+            <span class="confetti-decoration confetti-4">🎈</span>
+            
+            <div class="voyage-grid">
+                <div class="detail-item">
+                    <div class="detail-icon">🗓️</div>
+                    <div class="detail-label">Sail Date</div>
+                    <div class="detail-value">Dec 12, 2026</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">⚓</div>
+                    <div class="detail-label">Return Date</div>
+                    <div class="detail-value">Dec 17, 2026</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">⏰</div>
+                    <div class="detail-label">Duration</div>
+                    <div class="detail-value">5 Fun Days</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-icon">🌴</div>
+                    <div class="detail-label">Departure Port</div>
+                    <div class="detail-value">New Orleans</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pricing Section -->
+        <div class="pricing-section">
+            <div class="price-container">
+                <h2>🎁 Special Group Rate 🎁</h2>
+                <div class="price">As Low As $494*</div>
+                <p class="price-detail">*Per person, double occupancy</p>
+            </div>
+        </div>
+        
+        <!-- Important Information -->
+        <div class="important-info">
+            <h3>⭐ Important Details ⭐</h3>
+            <ul>
+                <li><strong>Ship:</strong> Carnival Valor - 110,000 tons of fun!</li>
+                <li><strong>Capacity:</strong> 2,980 guests</li>
+                <li><strong>Group Type:</strong> Class of '84 Diamond 60th Birthday Celebration</li>
+            </ul>
+        </div>
+        
+        <!-- Payment Schedule -->
+        <div class="important-info" style="margin-top: 20px;">
+            <h3>💳 Payment Schedule 💳</h3>
+            <ul>
+                <li><strong>$25 Deposit (Room Hold):</strong> Due by December 20, 2025<br>
+                    <em style="font-size: 14px; color: #666;">This holds your room but does not book it</em></li>
+                <li><strong>$150 Deposit (Room Booking):</strong> Books your room and provides link to pay Carnival directly</li>
+                <li><strong>Full $150 Deposit Due:</strong> August 14, 2026</li>
+                <li><strong>🚨 Final Payment Due:</strong> September 28, 2026</li>
+            </ul>
+        </div>
+        
+        <!-- How to Make Payments -->
+        <div class="important-info" style="margin-top: 20px; background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); border-color: #DAA520;">
+            <h3>💰 How to Make Payments 💰</h3>
+            <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid rgb(128, 0, 0);">
+                <p style="font-size: 16px; color: #333; margin-bottom: 10px;"><strong>Step 1:</strong> Pay $25 per person to hold your room (specify which room)</p>
+                <p style="font-size: 16px; color: #333; margin-bottom: 10px;"><strong>Step 2:</strong> Pay $150 per person to book your room of choice (specify which room)</p>
+                <p style="font-size: 16px; color: #333;"><strong>Step 3:</strong> Once full $150 deposit is made, you'll receive a Carnival Cruise Line link to pay towards your cruise balance</p>
+            </div>
+            
+            <div style="background: #fff9e6; padding: 20px; border-radius: 8px; margin-bottom: 20px; border: 2px solid #DAA520;">
+                <h4 style="color: rgb(128, 0, 0); font-size: 18px; margin-bottom: 12px; font-weight: 700;">📋 Required Information When Making Deposit:</h4>
+                <p style="font-size: 15px; color: #333; line-height: 1.8;">
+                    Please email the following information to <strong style="color: rgb(128, 0, 0);">carla.antoine1@gmail.com</strong>:<br>
+                    • First and last name of EACH person cruising<br>
+                    • Email address of person making the deposit<br>
+                    • Preferred stateroom category
+                </p>
+            </div>
+            
+            <h4 style="color: rgb(128, 0, 0); font-size: 20px; margin: 25px 0 15px 0; font-weight: 700;">💳 Payment Methods:</h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="font-size: 32px; margin-bottom: 10px;">📱</div>
+                    <div style="font-weight: 700; color: rgb(128, 0, 0); margin-bottom: 8px; font-size: 16px;">Zelle</div>
+                    <div style="color: #333; font-size: 15px; font-weight: 600;">(504) 442-0679</div>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💵</div>
+                    <div style="font-weight: 700; color: rgb(128, 0, 0); margin-bottom: 8px; font-size: 16px;">Cash App</div>
+                    <div style="color: #333; font-size: 15px; font-weight: 600;">$LadyCarlaAntoine</div>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                    <div style="font-size: 32px; margin-bottom: 10px;">💳</div>
+                    <div style="font-weight: 700; color: rgb(128, 0, 0); margin-bottom: 8px; font-size: 16px;">Venmo</div>
+                    <div style="color: #333; font-size: 15px; font-weight: 600;">@Carla-Antoine2</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cancellation Policy -->
+        <div class="important-info" style="margin-top: 20px; background: #ffe6e6; border-color: rgb(128, 0, 0);">
+            <h3>🚫 Cancellation Policy 🚫</h3>
+            <ul>
+                <li><strong>Cancel by October 20, 2026:</strong> 50% penalty per person</li>
+                <li><strong>Cancel by November 15, 2026:</strong> 75% penalty per person</li>
+                <li><strong>Cancel by November 30, 2026:</strong> Full penalty (no refund)</li>
+            </ul>
+        </div>
+        
+        <!-- Stateroom Options -->
+        <div style="padding: 50px 40px; background: #fafafa;">
+            <div class="section-header">
+                <h2 class="section-title">🛏️ Available Staterooms 🛏️</h2>
+                <p class="section-subtitle">Choose your perfect home away from home</p>
+            </div>
+            
+            <div style="overflow-x: auto; margin-top: 30px;">
+                <table style="width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden;">
+                    <thead>
+                        <tr style="background: rgb(128, 0, 0); color: white;">
+                            <th style="padding: 18px; text-align: left; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Stateroom</th>
+                            <th style="padding: 18px; text-align: left; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Type</th>
+                            <th style="padding: 18px; text-align: center; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Available</th>
+                            <th style="padding: 18px; text-align: center; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Price Per Person*</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">8D</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Balcony</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">10 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$809.00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0; background: #fafafa;">
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">8C</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Balcony</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">8 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$799.00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">8B</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Balcony</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">12 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$797.00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0; background: #fafafa;">
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">4G</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Interior</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">8 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$509.00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0;">
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">4F</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Interior</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">8 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$504.00</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #f0f0f0; background: #fafafa;">
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">4E</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Interior</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">10 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$499.00</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px; font-weight: 700; color: rgb(128, 0, 0); font-size: 18px;">4D</td>
+                            <td style="padding: 20px; color: #333; font-size: 16px;">Interior</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">4 rooms</td>
+                            <td style="padding: 20px; text-align: center; font-weight: 700; color: #DAA520; font-size: 18px;">$494.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p style="text-align: center; margin-top: 25px; color: #666; font-size: 15px; font-style: italic;">
+                💰 *Prices shown are per person based on double occupancy<br>
+                🏆 Best Value: Interior 4D at $494 per person • Premium Choice: Balcony 8B at $797 per person
+            </p>
+        </div>
+        
+        <!-- Itinerary Section -->
+        <div class="itinerary-section">
+            <div class="section-header">
+                <h2 class="section-title">🗺️ Your Adventure Awaits 🗺️</h2>
+                <p class="section-subtitle">Five days of sun, fun, and memories with your classmates!</p>
+            </div>
+            
+            <div class="itinerary-grid">
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Day 1 • Sat</span>
+                        <span class="day-time">⛵ Departs 3:30 PM</span>
+                    </div>
+                    <div class="day-location">🎺 New Orleans, Louisiana</div>
+                    <div class="day-description">
+                        Set sail from the Big Easy! Experience the vibrant French Quarter, legendary jazz, 
+                        and amazing Creole cuisine before embarking on your Caribbean adventure.
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Day 2 • Sun</span>
+                        <span class="day-time">🌊 All Day at Sea</span>
+                    </div>
+                    <div class="day-location">☀️ Fun Day at Sea</div>
+                    <div class="day-description">
+                        No port today! It's a great time to explore your ship and its exciting entertainment, 
+                        food and activities! Or take it easy at the pool, spa, or... if you book a room with 
+                        a balcony, enjoy the waves.
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Day 3 • Mon</span>
+                        <span class="day-time">🐠 8:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="day-location">🏝️ Cozumel, Mexico</div>
+                    <div class="day-description">
+                        Cozumel is proof that Mexico can do 'island flavor' with the best of the Caribbean. 
+                        It may not be the biggest island in the sea, but Cozumel offers a huge variety of things 
+                        to do, see, taste and explore. Snorkel, dive, shop, or relax on pristine beaches!
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Day 4 • Tue</span>
+                        <span class="day-time">🌅 8:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="day-location">🏖️ Progreso, Yucatán</div>
+                    <div class="day-description">
+                        Cruise to the Yucatán Peninsula for an unbeatable combination of breathtaking beaches 
+                        and fascinating history. Dock on Mexico's Emerald Coast alongside the Gulf, where you 
+                        can explore ancient Mayan ruins or relax on stunning beaches.
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Day 5 • Wed</span>
+                        <span class="day-time">🌊 All Day at Sea</span>
+                    </div>
+                    <div class="day-location">🎭 Fun Day at Sea</div>
+                    <div class="day-description">
+                        No port today! It's a great time to explore your ship and its exciting entertainment, 
+                        food and activities! Or take it easy at the pool, spa, or... if you book a room with 
+                        a balcony, enjoy the waves.
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <span class="day-number">Day 6 • Thu</span>
+                        <span class="day-time">🏁 Arrives 8:00 AM</span>
+                    </div>
+                    <div class="day-location">🎉 New Orleans, Louisiana</div>
+                    <div class="day-description">
+                        Back to NOLA with a treasure chest of new memories! Your Diamond Birthday celebration 
+                        comes to an end, but the friendships and stories will last forever.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">📞 Ready to Book Your Spot?</h2>
+                <p class="section-subtitle" style="color: white; opacity: 0.95;">Contact Carla to reserve your stateroom today!</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">👤</div>
+                    <div class="contact-label">Group Organizer</div>
+                    <div class="contact-value">Carla Antoine</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">(504) 442-0679</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">carla.antoine1@gmail.com</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-label">Website</div>
+                    <div class="contact-value" style="font-size: 14px; word-break: break-all;">
+                        <a href="https://carlaantoine.inteletravel.com/booktravel.cfm" target="_blank" style="color: #DAA520; text-decoration: none; transition: color 0.3s;">
+                            carlaantoine.inteletravel.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>✨ Accommodations • Dining • Entertainment • Port Access ✨</p>
+            <p class="celebration-tagline">
+                40 Years Strong • Roneagle Forever • Class of '84! 🦅
+            </p>
+        </div>
+    </div>
+</body>
+</html>
